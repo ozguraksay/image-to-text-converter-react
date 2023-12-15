@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+#file-upload-container {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+}
+
+#file-upload-container:hover {
+  background-color: #e0e0e0;
+}
+
+#upload-icon {
+  font-size: 36px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+#upload-text {
+  color: #555;
+}
+
+.input-file {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+#extracted_text{
+  color: #660101;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+  background-color: #555;
+}
+#conversion_msg{
+  font-size: xx-large;
+  font-style: italic;
+}
+#convert_btn {
+  padding: 10px 20px;
+  background-color: #002944;
+  color: white;
+  border: 2px black;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#convert_btn:hover {
+  background-color: #000306;
+}
