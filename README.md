@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a simple React application that allows users to upload an image and extract text from it using Tesseract.js. It includes a three-column layout with components for previewing the image, uploading files, converting, and displaying the extracted text.
+Simple React application that allows users to upload an image and extract text from it using Tesseract.js. It includes a three-column layout with components for previewing the image, uploading files, converting, and displaying the extracted text.
 
 ## Features
 
