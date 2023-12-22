@@ -10,13 +10,14 @@ const FileUploadContainer = ({ onImageUpload }) => {
       URL.revokeObjectURL(selectedFile);
     }
 
-    if (!file.type.startsWith('image/')) {
-      alert('Please upload an image');
-      return; 
-    }
+
     setSelectedFile(file);
   
     if (file) {
+      if (!file.type.startsWith('image/')) {
+        alert('Please upload an image');
+        return; 
+      }
       const imageUrl = URL.createObjectURL(file);
       onImageUpload(imageUrl);
       console.log('Created new object URL:', imageUrl);
