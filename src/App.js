@@ -19,7 +19,7 @@ const App = () => {
     if (imageUrl) {
       Tesseract.recognize(
         imageUrl,
-        'eng',
+        'eng', // You can change the language
         setIsConverting(true),
         { logger: (info) => console.log(info)}
       ).then(({ data: { text } }) => {
