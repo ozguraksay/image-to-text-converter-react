@@ -11,6 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+body{
+  background: radial-gradient(circle at 10% 20%, rgba(231, 255, 244, 0.46) 0.1%, rgba(224, 217, 217, 0.28) 90.1%);
+
+}
 #file-upload-container {
   position: relative;
   width: 300px;
@@ -29,15 +33,10 @@ code {
 #file-upload-container:hover {
   background-color: #e0e0e0;
 }
-
 #upload-icon {
-  font-size: 36px;
+  font-size: 48px;
   color: #555;
-  margin-bottom: 10px;
-}
-
-#upload-text {
-  color: #555;
+  margin-bottom: 5%;
 }
 
 .input-file {
@@ -53,9 +52,6 @@ code {
   color: #660101;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-body{
-  background-color: #555;
-}
 #conversion_msg{
   font-size: xx-large;
   font-style: italic;
@@ -70,4 +66,7 @@ body{
 }
 #convert_btn:hover {
   background-color: #000306;
+}
+#file-upload-container.dragging {
+  background-color: #e0e0e0; /* Change this to the desired color */
 }

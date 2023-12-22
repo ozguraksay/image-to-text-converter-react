@@ -12,6 +12,7 @@ const App = () => {
   const [isConverting, setIsConverting] = useState(false)
   const handleImageUpload = (url) => {
     setImageUrl(url);
+    setExtractedText("")
   };
 
   const handleConvert = () => {

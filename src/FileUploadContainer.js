@@ -1,40 +1,62 @@
-// FileUploadContainer.js
-
 import React, { useState } from 'react';
 
 const FileUploadContainer = ({ onImageUpload }) => {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
 
-  const handleFileChange = (e) => {
+  const handleFileChange = (file) => {
     if (selectedFile) {
+      console.log('Revoking previous object URL:', selectedFile);
       URL.revokeObjectURL(selectedFile);
     }
 
-    const file = e.target.files && e.target.files[0];
-
+    if (!file.type.startsWith('image/')) {
+      alert('Please upload an image');
+      return; 
+    }
+    setSelectedFile(file);
+  
     if (file) {
-      setSelectedFile(file);
-
       const imageUrl = URL.createObjectURL(file);
       onImageUpload(imageUrl);
+      console.log('Created new object URL:', imageUrl);
     }
   };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setIsDragging(false);
+
+    const file = e.dataTransfer.files[0];
+
+    if (file) {
+      handleFileChange(file);
+    }
+  };
+
   return (
-    <div className="col-md-4">
-    <label htmlFor="avatar" className="file-upload-label">
-      <div id="file-upload-container" className="mx-auto">
-        <div id="upload-icon">&#8679;</div>
-        <div id="upload-text">Click to Upload an Image</div>
-        <input
-          type="file"
-          id="avatar"
-          name="avatar"
-          accept="image/*"
-          onChange={handleFileChange}
-          className="d-none"
+    <div
+      id="file-upload-container"
+      className={`mt-4 ${isDragging ? 'dragging' : ''}`}
+      onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
+      onDragEnter={() => setIsDragging(true)}
+      onDragLeave={() => setIsDragging(false)}
+      onDrop={handleDrop}
+    >
+      <label className="position-relative">
+        <input 
+          type="file" 
+          className="input-file" 
+          onChange={(e) => handleFileChange(e.target.files[0])}
         />
-      </div>
-    </label></div>
+        <div className="container d-flex flex-column align-items-center justify-content-center">
+          <i id='upload-icon' className="fa fa-upload"></i>
+          <div id="upload-text" className="text-center">
+            Drag and Drop <br/> or <br/> Click to Upload
+          </div>
+        </div>
+      </label>
+    </div>
   );
 };
 
