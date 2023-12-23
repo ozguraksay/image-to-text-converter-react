@@ -45,4 +45,4 @@ The project is organized into the following components:
    npm start
 
 ## Demo
-[](https://image-to-text-converter-react.onrender.com/)https://image-to-text-converter-react.onrender.com
+<a href="https://image-to-text-converter-react.onrender.com" target="_blank">Image to Text Converter</a>
