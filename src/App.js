@@ -32,19 +32,25 @@ const App = () => {
   return (
     <>
       <h1 className='text-center display-6 mt-4'>Image to Text Converter</h1>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '20px' }} className="container mt-4">
-        <div id='preview' className="d-flex align-items-center justify-content-center">
-          <PreviewImage imageUrl={imageUrl} />
-        </div>
-        <div id="file_upload" className="d-flex align-items-center justify-content-center">
-          <div>
+      <div className="container mt-4">
+        <div className="row gx-4 gy-4">
+          <div className="col-12 col-md-4">
+            <div id='preview' className="d-flex align-items-center justify-content-center">
+            <PreviewImage imageUrl={imageUrl} />
+            </div>
+          </div>
+          <div className="col-12 col-md-4">
+            <div id="file_upload" className="d-flex flex-column align-items-center justify-content-center">
             <FileUploadContainer onImageUpload={handleImageUpload} />
             <ConvertButton onConvert={handleConvert} />
-            {isConverting && <p id='conversion_msg' className='display-6 text-center text-muted'>Converting...</p>}
+              {isConverting && <p id='conversion_msg' className='display-6 text-center text-muted'>Converting...</p>}
+            </div>
           </div>
-        </div>
-        <div id="extracted_text" className="d-flex align-items-center justify-content-center">
-          <ExtractedText text={extractedText} />
+          <div className="col-12 col-md-4">
+            <div id="extracted_text" className="d-flex align-items-center justify-content-center">
+            <ExtractedText text={extractedText} />
+            </div>
+          </div>
         </div>
       </div>
     </>
