@@ -5,14 +5,16 @@ import ConvertButton from './ConvertButton';
 import ExtractedText from './ExtractedText';
 import Tesseract from 'tesseract.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import DownloadButton from './DownloadButton';
 
 const App = () => {
   const [imageUrl, setImageUrl] = useState('');
   const [extractedText, setExtractedText] = useState('');
-  const [isConverting, setIsConverting] = useState(false)
+  const [isConverting, setIsConverting] = useState(false);
+
   const handleImageUpload = (url) => {
     setImageUrl(url);
-    setExtractedText("")
+    setExtractedText('');
   };
 
   const handleConvert = () => {
@@ -21,10 +23,10 @@ const App = () => {
         imageUrl,
         'eng', // You can change the language
         setIsConverting(true),
-        { logger: (info) => console.log(info)}
+        { logger: (info) => console.log(info) }
       ).then(({ data: { text } }) => {
         setExtractedText(text);
-        setIsConverting(false)
+        setIsConverting(false);
       });
     }
   };
@@ -36,19 +38,22 @@ const App = () => {
         <div className="row gx-4 gy-4">
           <div className="col-12 col-md-4">
             <div id='preview' className="d-flex align-items-center justify-content-center">
-            <PreviewImage imageUrl={imageUrl} />
+              <PreviewImage imageUrl={imageUrl} />
             </div>
           </div>
           <div className="col-12 col-md-4">
             <div id="file_upload" className="d-flex flex-column align-items-center justify-content-center">
-            <FileUploadContainer onImageUpload={handleImageUpload} />
-            <ConvertButton onConvert={handleConvert} />
+              <FileUploadContainer onImageUpload={handleImageUpload} />
+              <div className="d-flex align-items-center justify-content-center">
+                <ConvertButton onConvert={handleConvert} />
+                <DownloadButton extractedText={extractedText} />
+            </div>
               {isConverting && <p id='conversion_msg' className='display-6 text-center text-muted'>Converting...</p>}
             </div>
           </div>
           <div className="col-12 col-md-4">
             <div id="extracted_text" className="d-flex align-items-center justify-content-center">
-            <ExtractedText text={extractedText} />
+              <ExtractedText text={extractedText} />
             </div>
           </div>
         </div>

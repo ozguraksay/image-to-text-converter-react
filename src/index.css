@@ -56,7 +56,7 @@ body{
   font-size: xx-large;
   font-style: italic;
 }
-#convert_btn {
+.buttons {
   padding: 10px 20px;
   background-color: #002944;
   color: white;
@@ -64,7 +64,7 @@ body{
   border-radius: 8px;
   cursor: pointer;
 }
-#convert_btn:hover {
+.buttons:hover {
   background-color: #000306;
 }
 #file-upload-container.dragging {
