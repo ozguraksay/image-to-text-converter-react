@@ -70,3 +70,7 @@ body{
 #file-upload-container.dragging {
   background-color: #e0e0e0; /* Change this to the desired color */
 }
+hr{
+  height: 2px; 
+  background-color: #000;
+}

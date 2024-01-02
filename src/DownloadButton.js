@@ -15,7 +15,7 @@ const DownloadButton = ({ extractedText }) => {
   };
 
   return (
-  <div className="text-center mt-3 ms-2">
+  <div className="text-center mt-2 ms-2">
 
     <button className='buttons' onClick={handleDownload} hidden={!extractedText}>
       Download Text
