@@ -1,13 +1,12 @@
 import React from 'react';
-import Tesseract from 'tesseract.js';
-
+import languageCodes from './languageCodes'
+import "bootstrap/dist/css/bootstrap.min.css";
 const Dropdown = ({ selectedLanguage, onLanguageChange }) => {
-  const languageCodes = Object.values(Tesseract.languages)
-  console.log(Tesseract);
+
   return (
-    <div className="mb-3">
-      <label htmlFor="languageDropdown" className="form-label">
-        Select Language:
+<div className="mb-3 mt-4 text-center">
+      <label id='language_label' className="text-black text-lg font-medium truncate form-label">
+        Select Language
       </label>
       <select
         id="languageDropdown"
@@ -15,9 +14,9 @@ const Dropdown = ({ selectedLanguage, onLanguageChange }) => {
         value={selectedLanguage}
         onChange={(e) => onLanguageChange(e.target.value)}
       >
-        {languageCodes.map((language) => (
-          <option key={language} value={language}>
-            {language}
+        {Object.keys(languageCodes).map((langCode) => (
+          <option key={langCode} value={langCode}>
+            {languageCodes[langCode]}
           </option>
         ))}
       </select>

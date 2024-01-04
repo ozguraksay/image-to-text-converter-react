@@ -116,13 +116,6 @@ const App = () => {
                 selectedLanguage={selectedLanguage}
                 onLanguageChange={handleLanguageChange}
               />
-              <a
-                href="https://tesseract-ocr.github.io/tessdoc/Data-Files#data-files-for-version-400-november-29-2016"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Language Codes
-              </a>
               <FileUploadContainer onImageUpload={handleImageUpload} />
               {isConverting && (
                 <p
